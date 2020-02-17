@@ -1,0 +1,74 @@
+.index__wrapper {
+    color: #282828;
+    padding: 3.2em 4.0em;
+    height: 100%;
+}
+
+.index__wrapper h1 {
+    font-size: 3em;
+}
+
+.index__wrapper p {
+    font-size: 1.1em;
+}
+
+.index__wrapper .bold__text{
+}
+.index__wrapper .email__text{
+    font-weight: 800;
+    color:#c94e50;
+}
+.index__wrapper .name__text{
+    font-weight: 600;
+}
+
+.index__wrapper h2{
+
+}
+
+.index__wrapper ul {
+    margin: auto auto;
+    padding: 0;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.index__wrapper li{
+    display: block;
+    width: 400px;
+
+    list-style-type: none;
+
+    margin: 0.2em 0;
+
+    border: 1px solid #b8bcbc;
+}
+
+.index__wrapper li a{
+    display: block;
+
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0.8em 1.2em;
+
+    text-decoration: none;
+    color: #323f47;
+    font-size: 1.1em;
+
+    transition: 0.1s;
+}
+
+.index__wrapper li a:hover{
+    transition: 0.1s;
+    color: #c94e50;
+    background: #cbcfcf;
+}
+

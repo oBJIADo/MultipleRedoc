@@ -1,0 +1,45 @@
+.menu__element {
+    color: #bdc3c7;
+
+    margin: 3px 0;
+    padding: 4px 0;
+
+    display: block;
+}
+
+.menu__element:hover,
+.menu__element:focus {
+    color: #c94e50;
+}
+
+.menu__header{
+    color: #bdc3c7;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.bm-cross {
+    background: #bdc3c7;
+}
+
+.menu_list__wrapper a {
+    padding: 0;
+    margin: 0;
+
+    text-decoration: none;
+}
+
+.menu__active_element{
+    font-size: 20px;
+}
+
+.line__splitter{
+    border-bottom: #bdc3c7 solid 1px;
+    margin: 8px 0;
+}
+
+/* todo */
+#slide {
+    transition: all 0s !important;
+    width: 350px !important;
+}
