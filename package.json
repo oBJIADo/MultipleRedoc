@@ -12,25 +12,20 @@
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
-
-    "@jetbrains/kotlin-extensions": "^1.0.1-pre.89",
-    "@jetbrains/kotlin-react": "^16.9.0-pre.89",
-    "@jetbrains/kotlin-react-dom": "^16.9.0-pre.89",
-    "@jetbrains/kotlin-react-router-dom": "^4.3.1-pre.89",
-
-    "kotlin": "^1.3.61",
-    "kotlinx-coroutines-core": "^1.3.2",
-    "kotlinx-html": "^0.6.12",
-
     "react-burger-menu": "^2.6.13",
     "redoc": "^2.0.0-rc.23",
     "mobx": "^4.2.0",
     "styled-components": "^5.0.1",
-    "core-js": "^3.6.4",
-
-    "express": "^4.17.1"
+    "core-js": "^3.6.4"
   },
   "devDependencies": {
+    "@jetbrains/kotlin-extensions": "^1.0.1-pre.89",
+    "@jetbrains/kotlin-react": "^16.9.0-pre.89",
+    "@jetbrains/kotlin-react-dom": "^16.9.0-pre.89",
+    "@jetbrains/kotlin-react-router-dom": "^4.3.1-pre.89",
+    "kotlin": "^1.3.61",
+    "kotlinx-coroutines-core": "^1.3.2",
+    "kotlinx-html": "^0.6.12",
     "react-scripts-kotlin": "3.0.4",
     "jsonix-schema-compiler": "^2.3.9"
   },
