@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const magicTwo = 2;
+
 function initFromArg(index, defaultValue) {
     if (process.argv[index + magicTwo])
         return process.argv[index + magicTwo];
@@ -32,7 +33,7 @@ function makeFullPath(path) {
         let combinedPath = "";
         folders.forEach(value => {
             if (value && value.length > 0)
-                if (value === "." || value ==="..") {
+                if (value === "." || value === "..") {
                     combinedPath += value + "/";
                 } else {
                     if (!fs.existsSync(combinedPath + value)) {
@@ -55,12 +56,20 @@ function mapToObject(inputMap) {
 }
 
 function copyDir(fromDir, toDir, files) {
-    if(fromDir === toDir){
+    if (fromDir === toDir) {
+        return;
+    }
+    if (!fs.existsSync(fromDir)) {
+        console.warn("Directory: '" + fromDir + "'","doesn't exist!", "Cannot copy files.");
+        return;
+    }
+    if (fs.readdirSync(fromDir).length === 0) {
+        console.warn("Directory: '" + fromDir + "'","is empty!", "Files not copied!");
         return;
     }
 
     let copiedFiles;
-    if(!files){
+    if (!files) {
         copiedFiles = fs.readdirSync(fromDir);
     } else {
         copiedFiles = files
@@ -78,26 +87,30 @@ function createProperties(files) {
     fs.writeFileSync(propsDestinationPath + "/" + propsFileName, convertFileToProp(mapAsObject));
 }
 
-let dirFiles = fs.readdirSync(apiFromPath);
-let files = new Map();
-if (dirFiles && dirFiles.length !== 0) {
-    dirFiles.forEach((value) => {
-        let lastDotIndex = value.lastIndexOf(".");
-        if (lastDotIndex !== 0) {
-            let type = value.substr(lastDotIndex);
-            if (requiredTypes.includes(type)) {
-                files.set(value.substring(0, lastDotIndex), type)
+let dirFiles;
+if (fs.existsSync(apiFromPath)) {
+    dirFiles = fs.readdirSync(apiFromPath);
+    let files = new Map();
+    if (dirFiles && dirFiles.length !== 0) {
+        dirFiles.forEach((value) => {
+            let lastDotIndex = value.lastIndexOf(".");
+            if (lastDotIndex !== 0) {
+                let type = value.substr(lastDotIndex);
+                if (requiredTypes.includes(type)) {
+                    files.set(value.substring(0, lastDotIndex), type)
+                }
             }
-        }
-    })
+        })
+    }
+    console.log("resulted files: ", files);
+
+    createProperties(files);
+    //copy APIs
+    copyDir(apiFromPath, apiDestinationPath, dirFiles);
+} else {
+    createProperties([]);
+    console.warn("Api files not found!")
 }
-
-console.log("resulted files: ", files);
-
-createProperties(files);
-//copy APIs
-copyDir(apiFromPath, apiDestinationPath, dirFiles);
 
 //copy Images
 copyDir(imageFromPath, imageDestinationPath);
-
