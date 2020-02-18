@@ -13,13 +13,13 @@ const requiredTypes = [".yaml", ".yml", ".json"];
 const publicDir = initFromArg(0, ".");
 
 const apiFromPath = initFromArg(1, "./api");
-const apiDestinationPath = publicDir + "/build/api";
+const apiDestinationPath = publicDir + "/api";
 
-const propsDestinationPath = publicDir + "/build/static/js";
+const propsDestinationPath = publicDir + "/static/js";
 const propsFileName = "properties.js";
 
 const imageFromPath = initFromArg(2, "./img");
-const imageDestinationPath = publicDir + "/build/static/img";
+const imageDestinationPath = publicDir + "/static/img";
 
 
 function convertFileToProp(files) {
