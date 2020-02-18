@@ -9,7 +9,7 @@ import kotlinext.js.requireAll
 import kotlinx.html.id
 import react.dom.div
 import react.dom.render
-import react.router.dom.browserRouter
+import react.router.dom.hashRouter
 import kotlin.browser.document
 
 /**
@@ -20,7 +20,7 @@ fun main(args: Array<String>) {
     requireAll(require.context("src", true, js("/\\.css$/")))
 
     render(document.getElementById("app")) {
-        browserRouter {
+        hashRouter {
             div {
                 console.log(API_MAP)
                 console.log(PROPERTIES)

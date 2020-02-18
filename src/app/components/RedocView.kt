@@ -17,6 +17,7 @@ interface RedocViewState : RState {
 }
 
 class RedocView : RComponent<RProps, RedocViewState>() {
+    val API_PATH = "api"
 
     override fun RBuilder.render() {
         switch {
@@ -25,10 +26,9 @@ class RedocView : RComponent<RProps, RedocViewState>() {
             }
             route<SourceProps>("${RouterPath.SCHEMA}/:name") {
                 val type = API_MAP[it.match.params.name] ?: ".json"
-
                 redocComponent {
                     attrs {
-                        specUrl = "${it.match.params.name}$type"
+                        specUrl = "$API_PATH/${it.match.params.name}$type"
                         options = json(
                                 "hideDownloadButton" to false
                         )
@@ -41,10 +41,10 @@ class RedocView : RComponent<RProps, RedocViewState>() {
             }
         }
     }
+}
 
-    interface SourceProps : RProps {
-        var name: String
-    }
+interface SourceProps : RProps {
+    var name: String
 }
 
 fun RBuilder.redocView() = child(RedocView::class) {}
