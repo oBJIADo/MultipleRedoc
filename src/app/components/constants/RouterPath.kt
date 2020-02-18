@@ -1,7 +1,7 @@
 package app.components.constants
 
 enum class RouterPath(val path: String) {
-    SCHEMA("/schema"),
+    SCHEMA("/api"),
     INDEX("/"),
     ANY("*");
 

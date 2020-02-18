@@ -15,10 +15,10 @@ import react.router.dom.routeLink
 fun RBuilder.indexPage(apis: Map<String, String>) =
         div(classes = "index__wrapper") {
             ul {
-                for (api in apis) {
+                apis.keys.forEach {
                     li {
-                        routeLink(to = "${RouterPath.SCHEMA.path}/$api") {
-                            +api.key
+                        routeLink(to = "${RouterPath.SCHEMA.path}/$it") {
+                            +it
                         }
                     }
                 }

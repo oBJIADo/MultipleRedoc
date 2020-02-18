@@ -17,7 +17,6 @@ interface RedocViewState : RState {
 }
 
 class RedocView : RComponent<RProps, RedocViewState>() {
-    val apiPath = "/api"
 
     override fun RBuilder.render() {
         switch {
@@ -29,7 +28,7 @@ class RedocView : RComponent<RProps, RedocViewState>() {
 
                 redocComponent {
                     attrs {
-                        specUrl = "$apiPath/${it.match.params.name}$type"
+                        specUrl = "${it.match.params.name}$type"
                         options = json(
                                 "hideDownloadButton" to false
                         )
